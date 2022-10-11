@@ -23,7 +23,7 @@ namespace TestProject1
             logbook.journeys = listJourney;
 
             Assert.Equal(15, logbook.distanceTotal);
-            Assert.NotEqual(20, logbook.distanceTotal);
+            //Assert.NotEqual(20, logbook.distanceTotal);
 
         }
     }

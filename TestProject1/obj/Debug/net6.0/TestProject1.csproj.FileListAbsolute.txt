@@ -346,3 +346,5 @@ C:\Users\jessi\OneDrive\Dokumente\FH\5. Semester\Softwareprozesse und -qualität
 C:\Users\jessi\OneDrive\Dokumente\FH\5. Semester\Softwareprozesse und -qualität\Assignments\Assignment1\TestProject1\bin\Debug\net6.0\Assignment1.pdb
 C:\Users\jessi\OneDrive\Dokumente\FH\5. Semester\Softwareprozesse und -qualität\Assignments\Assignment1\TestProject1\bin\Debug\net6.0\Microsoft.AspNetCore.TestHost.dll
 C:\Users\jessi\OneDrive\Dokumente\FH\5. Semester\Softwareprozesse und -qualität\Assignments\Assignment1\TestProject1\bin\Debug\net6.0\System.IO.Pipelines.dll
+C:\Users\jessi\OneDrive\Dokumente\FH\5. Semester\Softwareprozesse und -qualität\Assignments\Assignment1\TestProject1\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\jessi\OneDrive\Dokumente\FH\5. Semester\Softwareprozesse und -qualität\Assignments\Assignment1\TestProject1\bin\Debug\net6.0\Moq.dll

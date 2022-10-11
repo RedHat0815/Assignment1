@@ -4,13 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Moq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace TestProject1
 {
     //Quelle: https://github.com/Naveen512/Dotnet6-API-XUnit-Testing/blob/master/Demo1.TestApi/System/Services/TestTodoService.cs
-    public class TestTodoService : IDisposable
+    public class TestJourneyController : IDisposable
     {
         protected readonly LogbookContext _context;
         private static readonly string _connectionString =
@@ -18,7 +19,7 @@ namespace TestProject1
         + $"password={Environment.GetEnvironmentVariable("MYSQL_PASSWORD") ?? "root"};"
         + $"database={Environment.GetEnvironmentVariable("MYSQL_DATABASE") ?? "logbook"}";
 
-        public TestTodoService()
+        public TestJourneyController()
         {
 
 
@@ -32,37 +33,32 @@ namespace TestProject1
         }
 
         [Fact]
-        public async Task GetAllAsync_ReturnTodoCollection()
+        public async Task GetLogbook()
         {
-            /// Arrange
-            _context.Journeys.AddRange(MockData.TodoMockData.GetTodos());
-            _context.SaveChanges();
 
-            var sut = new TodoService(_context);
+            Logbook logbook = new Logbook();
+            logbook.journeys = await _context.Journeys.ToListAsync();
 
-            /// Act
-            var result = await sut.GetAllAsync();
 
-            /// Assert
-            result.Should().HaveCount(TodoMockData.GetTodos().Count);
+            Assert.Equal(0, logbook.distanceTotal);
+
         }
 
         [Fact]
         public async Task SaveAsync_AddNewTodo()
         {
             /// Arrange
-            var newTodo = TodoMockData.NewTodo();
-            _context.Todo.AddRange(MockData.TodoMockData.GetTodos());
+            Journey newJourney = new Journey(new DateTime(2010, 3, 11), new DateTime(2010, 3, 11), "test1", 5, "test1");
+            _context.Journeys.Add(newJourney);
             _context.SaveChanges();
 
-            var sut = new TodoService(_context);
+            Logbook logbook = new Logbook();
+            logbook.journeys = await _context.Journeys.ToListAsync();
 
-            /// Act
-            await sut.SaveAsync(newTodo);
+            Journey journey = logbook.journeys.First();
 
-            ///Assert
-            int expectedRecordCount = (TodoMockData.GetTodos().Count() + 1);
-            _context.Todo.Count().Should().Be(expectedRecordCount);
+            Assert.Equal("test1", journey.Driver);
+
         }
 
         public void Dispose()
