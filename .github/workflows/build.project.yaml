@@ -16,7 +16,7 @@ jobs:
         dotnet-version: '6.0.x'
     - name: build project
       run: dotnet publish -o ../containerbuild/release/
-      working-directory: ./AWebApp
+      working-directory: ./Assignment1
     - name: run test
       run: dotnet test
       working-directory: ./TestProject1
