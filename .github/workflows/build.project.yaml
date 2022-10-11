@@ -15,13 +15,23 @@ jobs:
       with:
         dotnet-version: '6.0.x'
     - name: build project
-      # run: dotnet build
       run: dotnet publish -o ../containerbuild/release/
       working-directory: ./AWebApp
+    - name: run test
+      run: dotnet test
+      working-directory: ./TestProject1
     - run: chmod +x ./containerbuild/build-container.sh
     - name: build docker container
       run: ./build-container.sh build1
       working-directory: ./containerbuild
+    - name: Shutdown Ubuntu MySQL (SUDO)
+      run: sudo service mysql stop
+    - uses: getong/mariadb-action@v1.1
+      with:
+        mariadb version: ’10.8'
+        mysql database: 'mydb'
+        mysql user: 'root'
+        mysql password: 'root'
 #  run: make
 #  - name: build and publish container
 #  run: ./build.sh build-$GITHUB_RUN_NUMBER idi2020.azurecr.io
