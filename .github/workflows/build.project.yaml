@@ -22,9 +22,9 @@ jobs:
     - uses: getong/mariadb-action@v1.1
       with:
         mariadb version: ’10.8'
-        mysql database: 'mydb'
-        mysql user: 'root'
-        mysql password: 'root'
+        mysql database: 'logbook'
+        mysql user: 'logbookuser'
+        mysql password: 'logbookpw'
     - name: run test
       run: dotnet test
       working-directory: ./TestProject1
