@@ -33,8 +33,10 @@ jobs:
         mariadb version: '10.4.10'
         mysql database: 'logbook'
         mysql user: 'root'
-        mysql password: 'root'
+        mysql root password: ${{ secrets.ROOT_PASSWORD }}
     - name: run test
       run: dotnet test
       working-directory: ./TestProject1
+      env:
+        dbpassword: ${{ secrets.ROOT_PASSWORD }}
     

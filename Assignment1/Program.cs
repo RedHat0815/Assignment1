@@ -20,9 +20,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
+var connectionString = "datasource=localhost;port=3307;database=logbook;userid=root;password=" + Environment.GetEnvironmentVariable("dbpassword")
 
-
-string? connectionString = builder.Configuration.GetConnectionString("Logbookdatabase");
+//string? connectionString = builder.Configuration.GetConnectionString("Logbookdatabase");
 
 builder.Services.AddDbContext<LogbookContext>(
     options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
