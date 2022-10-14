@@ -6,13 +6,15 @@ if ["$#" -t 1]; then
 fi
  
 USER_PREFIX=jesmoo
-BUILD_NUMBER=$1
+# BUILD_NUMBER=$1
+SQL_USERNAME=$1
+SQL_PASSWORD=$2
 
 docker build -t awebapp .
 
 docker tag awebapp "idi2020.azurecr.io/$USER_PREFIX-backend:latest"
-docker tag awebapp "idi2020.azurecr.io/$USER_PREFIX-backend:$BUILD_NUMBER"
+# docker tag awebapp "idi2020.azurecr.io/$USER_PREFIX-backend:$BUILD_NUMBER"
 
 
 docker push "idi2020.azurecr.io/$USER_PREFIX-backend:latest"
-docker push "idi2020.azurecr.io/$USER_PREFIX-backend:$BUILD_NUMBER"
+# docker push "idi2020.azurecr.io/$USER_PREFIX-backend:$BUILD_NUMBER"
