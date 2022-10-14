@@ -14,15 +14,6 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '6.0.x'
-    - name: build project
-      run: dotnet publish -o ../containerbuild/release/
-      working-directory: ./Assignment1
-      env:
-        dbpassword: ${{ secrets.ROOT_PASSWORD }}
-    - run: chmod +x ./containerbuild/build-container.sh
-    - name: build docker container
-      run: ./build-container.sh build1
-      working-directory: ./containerbuild
     - name: Stop Default SQL
       run: sudo service mysql stop
     - name: Add SQL Instanze
@@ -36,6 +27,15 @@ jobs:
         mysql database: 'logbook'
         mysql user: 'root'
         mysql root password: ${{ secrets.ROOT_PASSWORD }}
+    - name: build project
+      run: dotnet publish -o ../containerbuild/release/
+      working-directory: ./Assignment1
+      env:
+        dbpassword: ${{ secrets.ROOT_PASSWORD }}
+    - run: chmod +x ./containerbuild/build-container.sh
+    - name: build docker container
+      run: ./build-container.sh build1
+      working-directory: ./containerbuild
     - name: run test
       run: dotnet test
       working-directory: ./TestProject1
