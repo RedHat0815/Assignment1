@@ -21,9 +21,10 @@ jobs:
     - name: build docker container
       run: ./build-container.sh build1
       working-directory: ./containerbuild
-    - name: Add SQL Instanze
+    - name: Stop Default SQL
       run: sudo service mysql stop
-    - uses: getong/mariadb-action@v1.1
+    - name: Add SQL Instanze
+      uses: getong/mariadb-action@v1.1
       with:
         host port: 3307
         container port: 3307
@@ -37,6 +38,3 @@ jobs:
       run: dotnet test
       working-directory: ./TestProject1
     
-#  run: make
-#  - name: build and publish container
-#  run: ./build.sh build-$GITHUB_RUN_NUMBER idi2020.azurecr.io

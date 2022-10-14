@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 
-COPY ./release ./AWebApp
+COPY ./release ./Assignment1
 
-WORKDIR /AWebApp
+WORKDIR /Assignment1
 
-ENTRYPOINT [ "dotnet", "AWebApp.dll" ]
+ENTRYPOINT [ "dotnet", "Assignment1.sln" ]

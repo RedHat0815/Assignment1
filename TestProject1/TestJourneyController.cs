@@ -45,7 +45,7 @@ namespace TestProject1
         }
 
         [Fact]
-        public async Task SaveAsync_AddNewTodo()
+        public async Task SaveAsync_AddNewJourney()
         {
             /// Arrange
             Journey newJourney = new Journey(new DateTime(2010, 3, 11), new DateTime(2010, 3, 11), "test1", 5, "test1");
