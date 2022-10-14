@@ -14,10 +14,11 @@ namespace TestProject1
     public class TestJourneyController : IDisposable
     {
         protected readonly LogbookContext _context;
-        private static readonly string _connectionString =
-        $"server=localhost;user={Environment.GetEnvironmentVariable("MYSQL_USER") ?? "root"};"
-        + $"password={Environment.GetEnvironmentVariable("MYSQL_PASSWORD") ?? "root"};"
-        + $"database={Environment.GetEnvironmentVariable("MYSQL_DATABASE") ?? "logbook"}";
+        private static readonly string _connectionString = "datasource=localhost;port=3307;database=logbook;userid=root;password=" + Environment.GetEnvironmentVariable("dbpassword");
+        // private static readonly string _connectionString =
+        // $"server=localhost;user={Environment.GetEnvironmentVariable("MYSQL_USER") ?? "root"};"
+        // + $"password={Environment.GetEnvironmentVariable("MYSQL_PASSWORD") ?? "root"};"
+        // + $"database={Environment.GetEnvironmentVariable("MYSQL_DATABASE") ?? "logbook"}";
 
         public TestJourneyController()
         {
