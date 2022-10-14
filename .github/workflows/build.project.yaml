@@ -17,6 +17,8 @@ jobs:
     - name: build project
       run: dotnet publish -o ../containerbuild/release/
       working-directory: ./Assignment1
+      env:
+        dbpassword: ${{ secrets.ROOT_PASSWORD }}
     - run: chmod +x ./containerbuild/build-container.sh
     - name: build docker container
       run: ./build-container.sh build1
