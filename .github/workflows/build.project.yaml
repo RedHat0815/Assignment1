@@ -19,8 +19,8 @@ jobs:
     - name: Add SQL Instanze
       uses: getong/mariadb-action@v1.1
       with:
-        host port: 3307
-        container port: 3307
+        host port: 3306
+        container port: 3306
         character set server: 'utf8'
         collation server: 'utf8_general_ci'
         mariadb version: '10.4.10'
@@ -32,10 +32,10 @@ jobs:
       working-directory: ./Assignment1
       env:
         dbpassword: ${{ secrets.ROOT_PASSWORD }}
-        serverport: ${{ secrets.SERVERPORT }}
-        database: ${{ secrets.DATABASE }}
-        server: ${{ secrets.DATASOURCE }}
-        userid: ${{ secrets.USERID }}
+        serverport: 3306
+        database: 'logbook'
+        server: 'localhost'
+        userid: 'root'
     - run: chmod +x ./containerbuild/build-container.sh
     - name: build docker container
       run: ./build-container.sh build1
@@ -45,8 +45,8 @@ jobs:
       working-directory: ./TestProject1
       env:
         dbpassword: ${{ secrets.ROOT_PASSWORD }}
-        serverport: ${{ secrets.SERVERPORT }}
-        database: ${{ secrets.DATABASE }}
-        server: ${{ secrets.DATASOURCE }}
-        userid: ${{ secrets.USERID }}
+        serverport: 3306
+        database: 'logbook'
+        server: 'localhost'
+        userid: 'root'
     
