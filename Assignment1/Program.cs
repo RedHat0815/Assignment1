@@ -20,7 +20,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
-string connectionString = "datasource=localhost;port=3307;database=logbook;userid=root;password=" + Environment.GetEnvironmentVariable("dbpassword");
+string connectionString = "datasource=" + Environment.GetEnvironmentVariable("server") + 
+    ";port=" + Environment.GetEnvironmentVariable("serverport") + 
+    ";database=" + Environment.GetEnvironmentVariable("database") + 
+    ";userid=" + Environment.GetEnvironmentVariable("userid") + 
+    ";password=" + Environment.GetEnvironmentVariable("dbpassword");
 
 //string? connectionString = builder.Configuration.GetConnectionString("Logbookdatabase");
 

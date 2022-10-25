@@ -13,7 +13,7 @@
             End = end;
             Driver = driver;
             Distance = distance;
-            Descripiton = description;
+            Description = description;
         }
 
         public long Id { get; set; }
@@ -23,7 +23,7 @@
 
         public string Driver { get; set; }
         public long Distance { get; set; }
-        public string Descripiton { get; set; }
+        public string Description { get; set; }
 
         //public long SumLogbook { get; set; }
 
