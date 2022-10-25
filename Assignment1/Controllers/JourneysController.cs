@@ -59,7 +59,7 @@ namespace Assignment1.Controllers
 
         {
 
-            Journey newJourney = new(journey.Start, journey.End, journey.Descripiton, journey.Distance, journey.Driver);
+            Journey newJourney = new(journey.Start, journey.End, journey.Description, journey.Distance, journey.Driver);
 
 
 
