@@ -34,7 +34,7 @@ jobs:
         dbpassword: ${{ secrets.ROOT_PASSWORD }}
         serverport: ${{ secrets.SERVERPORT }}
         database: ${{ secrets.DATABASE }}
-        datasource: ${{ secrets.DATASOURCE }}
+        server: ${{ secrets.DATASOURCE }}
         userid: ${{ secrets.USERID }}
     - run: chmod +x ./containerbuild/build-container.sh
     - name: build docker container
