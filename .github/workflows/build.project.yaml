@@ -45,4 +45,8 @@ jobs:
       working-directory: ./TestProject1
       env:
         dbpassword: ${{ secrets.ROOT_PASSWORD }}
+        serverport: ${{ secrets.SERVERPORT }}
+        database: ${{ secrets.DATABASE }}
+        server: ${{ secrets.DATASOURCE }}
+        userid: ${{ secrets.USERID }}
     
