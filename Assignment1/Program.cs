@@ -44,7 +44,7 @@ app.MapControllers();
 
 using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
-    DbContext dbContext = scope.ServiceProvider.GetRequiredService<QuickMathContext>();
+    DbContext dbContext = scope.ServiceProvider.GetRequiredService<LogbookContext>();
     dbContext.Database.Migrate();
 }
 
