@@ -3,7 +3,7 @@
     public class Logbook
     {
 
-        public IEnumerable<Journey> journeys { get; set; }
+        public List<Journey> journeys { get; set; }
 
         public long distanceTotal
         {
