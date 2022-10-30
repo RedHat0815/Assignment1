@@ -24,7 +24,7 @@ namespace FuckOf.Migrations
                     Driver = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Distance = table.Column<long>(type: "bigint", nullable: false),
-                    Descripiton = table.Column<string>(type: "longtext", nullable: false)
+                    Description = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
