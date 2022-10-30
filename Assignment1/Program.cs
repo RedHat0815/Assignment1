@@ -42,4 +42,10 @@ if (app.Environment.IsDevelopment())
 
 app.MapControllers();
 
+using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+{
+    DbContext dbContext = scope.ServiceProvider.GetRequiredService<QuickMathContext>();
+    dbContext.Database.Migrate();
+}
+
 app.Run();
