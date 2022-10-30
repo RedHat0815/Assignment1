@@ -27,7 +27,7 @@ namespace FuckOf.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Descripiton")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext");
 
